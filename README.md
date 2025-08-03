@@ -135,6 +135,13 @@ def show_nodes(self, node_data):
 
 ## 使用示例
 见 tests\test.ipynb
+| 图中心节点 |  
+|----------|
+| ![图中心节点](image/central.png)  |
+
+| 节点 ’15’,’63’ 相关节点|  
+|----------|
+| ![相关节点](image/relate.png)  |
 
 ## 算法特点
 
