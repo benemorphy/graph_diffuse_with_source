@@ -1,0 +1,103 @@
+<mxfile host="app.diagrams.net" modified="2023-11-15T08:36:40.315Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36" etag="S3rJ54tF5Xm8J3qSXd6f" version="21.7.4" type="device">
+  <diagram id="gds_class_diagram" name="Gds Class Diagram">
+    <mxGraphModel dx="1035" dy="581" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <!-- 类节点 -->
+        <mxCell id="2" value="Gds\n图传播算法核心类" style="swimlane;swimlaneHeaderStyle=1;swimlaneFillColor=#f5f5f5;rounded=1;strokeWidth=2;fillColor=#ffffff" vertex="1" parent="1">
+          <mxGeometry x="100" y="50" width="400" height="600" as="geometry" />
+        </mxCell>
+        <!-- 辅助函数 -->
+        <mxCell id="3" value="辅助函数" style="swimlane;swimlaneHeaderStyle=1;swimlaneFillColor=#f0f8ff;rounded=1;strokeWidth=2;fillColor=#ffffff" vertex="1" parent="1">
+          <mxGeometry x="550" y="50" width="300" height="200" as="geometry" />
+        </mxCell>
+        <!-- 类属性 -->
+        <mxCell id="4" value="属性" style="text;align=center;verticalAlign=middle;fontStyle=1;fillColor=#f0f0f0" vertex="1" parent="2">
+          <mxGeometry x="10" y="30" width="380" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="5" value="G: igraph.Graph 对象" style="text;align=left;verticalAlign=middle;resizable=0;points=[[0,0.5]];portConstraint=east" vertex="1" parent="2">
+          <mxGeometry x="30" y="60" width="360" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="6" value="df_vertexs: 节点数据框" style="text;align=left;verticalAlign=middle;resizable=0;points=[[0,0.5]];portConstraint=east" vertex="1" parent="2">
+          <mxGeometry x="30" y="90" width="360" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="7" value="node_ids: 节点 ID 列表" style="text;align=left;verticalAlign=middle;resizable=0;points=[[0,0.5]];portConstraint=east" vertex="1" parent="2">
+          <mxGeometry x="30" y="120" width="360" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="8" value="id_nodeid_dict: 顶点 ID 到节点 ID 的映射" style="text;align=left;verticalAlign=middle;resizable=0;points=[[0,0.5]];portConstraint=east" vertex="1" parent="2">
+          <mxGeometry x="30" y="150" width="360" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="9" value="nodeid_id_dict: 节点 ID 到顶点 ID 的映射" style="text;align=left;verticalAlign=middle;resizable=0;points=[[0,0.5]];portConstraint=east" vertex="1" parent="2">
+          <mxGeometry x="30" y="180" width="360" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="10" value="nodeid_buffer_dict: 节点 ID 到缓冲区的映射" style="text;align=left;verticalAlign=middle;resizable=0;points=[[0,0.5]];portConstraint=east" vertex="1" parent="2">
+          <mxGeometry x="30" y="210" width="360" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="11" value="nodeid_msg_dict: 节点 ID 到消息的映射" style="text;align=left;verticalAlign=middle;resizable=0;points=[[0,0.5]];portConstraint=east" vertex="1" parent="2">
+          <mxGeometry x="30" y="240" width="360" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="12" value="FADE: 消息衰减系数 (默认 0.3)" style="text;align=left;verticalAlign=middle;resizable=0;points=[[0,0.5]];portConstraint=east" vertex="1" parent="2">
+          <mxGeometry x="30" y="270" width="360" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="13" value="LIMIT: 关联度过滤阈值" style="text;align=left;verticalAlign=middle;resizable=0;points=[[0,0.5]];portConstraint=east" vertex="1" parent="2">
+          <mxGeometry x="30" y="300" width="360" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="14" value="MIN_SIZE, MAX_SIZE, DEFAULT_SIZE: 节点可视化参数" style="text;align=left;verticalAlign=middle;resizable=0;points=[[0,0.5]];portConstraint=east" vertex="1" parent="2">
+          <mxGeometry x="30" y="330" width="360" height="20" as="geometry" />
+        </mxCell>
+        <!-- 类方法 -->
+        <mxCell id="15" value="方法" style="text;align=center;verticalAlign=middle;fontStyle=1;fillColor=#f0f0f0" vertex="1" parent="2">
+          <mxGeometry x="10" y="360" width="380" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="16" value="__init__(self, G): 初始化类" style="text;align=left;verticalAlign=middle;resizable=0;points=[[0,0.5]];portConstraint=east" vertex="1" parent="2">
+          <mxGeometry x="30" y="390" width="360" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="17" value="add_one_node_ids(self, node_ids): 添加源节点" style="text;align=left;verticalAlign=middle;resizable=0;points=[[0,0.5]];portConstraint=east" vertex="1" parent="2">
+          <mxGeometry x="30" y="420" width="360" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="18" value="negative_add_one_node_ids(self, node_ids): 添加负源节点" style="text;align=left;verticalAlign=middle;resizable=0;points=[[0,0.5]];portConstraint=east" vertex="1" parent="2">
+          <mxGeometry x="30" y="450" width="360" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="19" value="emit_to_buffer(self, node_ids): 消息传播到缓冲区" style="text;align=left;verticalAlign=middle;resizable=0;points=[[0,0.5]];portConstraint=east" vertex="1" parent="2">
+          <mxGeometry x="30" y="480" width="360" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="20" value="merge_from_buffer(self): 从缓冲区合并消息" style="text;align=left;verticalAlign=middle;resizable=0;points=[[0,0.5]];portConstraint=east" vertex="1" parent="2">
+          <mxGeometry x="30" y="510" width="360" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="21" value="normalize(self): 归一化所有节点消息" style="text;align=left;verticalAlign=middle;resizable=0;points=[[0,0.5]];portConstraint=east" vertex="1" parent="2">
+          <mxGeometry x="30" y="540" width="360" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="22" value="normalize_node_id(self, node_id): 归一化指定节点消息" style="text;align=left;verticalAlign=middle;resizable=0;points=[[0,0.5]];portConstraint=east" vertex="1" parent="2">
+          <mxGeometry x="30" y="570" width="360" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="23" value="show_nodes(self, node_data): 可视化节点数据" style="text;align=left;verticalAlign=middle;resizable=0;points=[[0,0.5]];portConstraint=east" vertex="1" parent="2">
+          <mxGeometry x="30" y="600" width="360" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="24" value="show_central(self): 计算并返回中心节点" style="text;align=left;verticalAlign=middle;resizable=0;points=[[0,0.5]];portConstraint=east" vertex="1" parent="2">
+          <mxGeometry x="30" y="630" width="360" height="20" as="geometry" />
+        </mxCell>
+        <!-- 辅助函数内容 -->
+        <mxCell id="25" value="merge_dicts_with_sum(list_of_dicts)" style="text;align=left;verticalAlign=middle;resizable=0;points=[[0,0.5]];portConstraint=east" vertex="1" parent="3">
+          <mxGeometry x="30" y="30" width="260" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="26" value="合并多个字典，将相同键的值相加" style="text;align=left;verticalAlign=middle;resizable=0;points=[[0,0.5]];portConstraint=east" vertex="1" parent="3">
+          <mxGeometry x="30" y="60" width="260" height="20" as="geometry" />
+        </mxCell>
+        <!-- 连接线 -->
+        <mxCell id="27" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=4;html=1" edge="1" parent="1" source="20" target="25">
+          <mxGeometry width="50" height="50" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="28" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=4;html=1" edge="1" parent="1" source="17" target="25">
+          <mxGeometry width="50" height="50" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="29" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=4;html=1" edge="1" parent="1" source="18" target="25">
+          <mxGeometry width="50" height="50" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="30" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=4;html=1" edge="1" parent="1" source="24" target="25">
+          <mxGeometry width="50" height="50" relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
