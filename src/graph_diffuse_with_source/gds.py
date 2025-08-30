@@ -272,7 +272,71 @@ class Gds():
 
         # 设置节点大小属性
             node['size']=scaled_size
+    def zerofy_all(self):
+        self.nodeid_msg_dict = {k: json.dumps({})for k, v in self.nodeid_id_dict.items()}  
             
+    def neg_key_nodes(self,node_ids):
+        """
+
+        参数:
+            node_ids: 包含节点ID的列表
+        """
+        self.zerofy_all()
+        
+    # 找到所有节点
+        nodeids_all = list(self.nodeid_id_dict.keys())
+        # 节点之外的其他节点赋值1
+        self.negative_add_one_node_ids(node_ids)
+        # 节点之外的节点扩散
+        self.emit_to_buffer(nodeids_all)
+        self.merge_from_buffer()   
+        # 找出节点的消息，并且合并
+        buffer =[]
+        for node_id in node_ids:
+            r_msg = json.loads(self.nodeid_msg_dict[node_id])
+            buffer.append(r_msg)
+        # 合并消息
+        merged_dict = merge_dicts_with_sum(buffer)
+        total = sum(merged_dict.values())
+        if total >0:
+            factor=1/total
+            factor_limit =2*(1/self.G.vcount())
+
+            merged_dict=  {key: (value*factor) for key, value in merged_dict.items()}
+            filtered_dict = {key: value for key, value in merged_dict.items() if value >= factor_limit}
+        else:
+            filtered_dict = merged_dict
+
+        return filtered_dict
+        
+    def pos_key_nodes(self,node_ids):
+        """
+
+        参数:
+            node_ids: 包含节点ID的列表
+        """
+        self.zerofy_all()
+        nodeids_all = list(self.nodeid_id_dict.keys())
+        self.add_one_node_ids(node_ids)
+        self.emit_to_buffer(nodeids_all)
+        self.merge_from_buffer()        
+        buffer =[]
+        for node_id in nodeids_all:
+            r_msg = json.loads(self.nodeid_msg_dict[node_id])
+            buffer.append(r_msg)
+        # 合并消息
+        merged_dict = merge_dicts_with_sum(buffer)
+        total = sum(merged_dict.values())
+        if total >0:
+            factor=1/total
+            factor_limit =2*(1/self.G.vcount())
+
+            merged_dict=  {key: (value*factor) for key, value in merged_dict.items()}
+            filtered_dict = {key: value for key, value in merged_dict.items() if value >= factor_limit}
+        else:
+            filtered_dict = merged_dict
+
+        return filtered_dict
     def show_central(self):
         """
         计算并返回图中的中心节点
